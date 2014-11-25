@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI Calculator</title>
+  <meta charset="utf-8">
+  <meta name="description" content="BMI Calculator">
+  <meta name="author" content="Bart Decaigny">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>BMI Calculator</h1>
+    <h2>for Coursera course 'Developing Data Products'</h2>
+    <p>Bart Decaigny<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Background</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Obesitas</h1>
+
+<p>One of the growing risks to population health - especially, but not exclusively
+in developed countries - is overweight. This is roughly caused by too much and
+too rich food (or toherwise unbalanced diet), lack of exercises etc .<br>
+The weight problem is often shorthanded as obesitas, for using a more neutral
+term. One of the quick checks one can do to asses the risk for obesitas, is 
+calculating the body mass index or BMI - a relation between weight and length.
+The medical interpretation on this index is not always anonymous (see a.o. 
+Wikipedia -e.g. using waist circumference proves to be a better predictor for 
+the risk on cardiovascular problems), but it is a useful tool for raising
+awareness.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>BMI calculation &amp; rangess</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Index is simply calculated by dividing a person&#39;s weight (in kg), by the 
+square of his/her heigth (in m). This should give a number roughly between 10
+and 50. This calculated index is then compared to ranges for assessing the health
+of the person regarding his weight. Note that several (slightly different) ranges
+can be found, sometimes for simplification, sometimes for catering for racial 
+differences. Note also that no ranges are used for children under 20 years, the 
+BMI is for them instead compared to percentiles. A common found set of BMI ranges
+loooks like this:</p>
+
+<ul>
+<li>&lt; 18.5: Underweight</li>
+<li>between 18.5 and 25: normal (healthy) weight</li>
+<li>between 25 and 30: overweight</li>
+<li>between 30 and 35: obese</li>
+<li>over 35: morbidly obese</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Calculation of BMI in the demo application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The demo application requests your weight (default: 75 kg) and height (default:
+175 cm), and an optional target BMI (default: 23.5). This input is then used to
+calculate your BMI, and how much kg you should lose (or gain) to reach your target.</p>
+
+<p>The calculation for the BMI is like this:</p>
+
+<pre><code class="r">weight &lt;- 75
+height &lt;- 175
+
+weight/(height*height/10000) ## since height is given in cm, but should be in m
+</code></pre>
+
+<pre><code>## [1] 24.49
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Calculation of the target weight in the demo application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For the target this becomes:</p>
+
+<pre><code class="r">weight &lt;- 75
+height &lt;- 175
+
+target &lt;- 23.5
+
+round(((target - (weight/(height*height/10000)))*(height*height/10000)), digits = 2)
+</code></pre>
+
+<pre><code>## [1] -3.03
+</code></pre>
+
+<p>Based on the result of this calculation, the web page gives some encouragement message...</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Background'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='BMI calculation &amp; rangess'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Calculation of BMI in the demo application'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Calculation of the target weight in the demo application'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
